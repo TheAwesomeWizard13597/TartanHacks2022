@@ -3,23 +3,21 @@ from logging import root
 from re import L
 import tkinter
 from tkinter import *
+from data import *
 
 def show_places():
     for i in range(10):
-        place = "Paris"
-        cp100k = 50
-        rLevel = cp100k
-        print(str(i) + " " + str(rLevel))
+        place = risk['Country']
+        rLevel = risk['Active']
         if(rLevel > w.get()):
             continue
         pltext = str(i) + ". " + place + '. This is the place.'
-        print(pltext)
         llist[i].config(text=pltext)
         llist[i].pack()
 
 # Initialize root and place list
 root = Tk()
-llist = [Label(root)]
+llist = [Label(root), Label(root), Label(root), Label(root), Label(root), Label(root), Label(root), Label(root), Label(root), Label(root)]
 
 # Add Title text and instructions
 l1 = Label(root, text = "Covid Risk-Assessment Tool")
