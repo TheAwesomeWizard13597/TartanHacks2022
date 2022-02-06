@@ -2,7 +2,7 @@ import pandas as pd
 
 def getData():
 
-    path = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/02-04-2021.csv'
+    path = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/02-05-2022.csv'
 
     df = pd.read_csv(path)
 
