@@ -6,19 +6,24 @@ from tkinter import *
 from data import *
 
 def show_places():
-    for i in range(10):
-        #place = risk['Country']
-        #rLevel = risk['Active']
-        
+    for i in range(15):
+        place = risk[i][1]
+        rLevel = risk[i][0]
+
+        if(rLevel < w.get()):
+            pltext = str(i+1) + ". " + place + '! You can travel here since the risk level is only +' + str(rLevel)
+            mycolor = "blue"
         if(rLevel > w.get()):
-            continue
-        pltext = str(i+1) + ". " + place + '! You can travel here since the risk level is only +' str(rLevel)
-        llist[i].config(text=pltext)
+            pltext = str(i+1) + ". " + place + '. You should not travel here since the risk level is +' + str(rLevel)
+            mycolor = "red"
+        llist[i].config(text=pltext, fg=mycolor)
         llist[i].pack()
 
 # Initialize root and place list
 root = Tk()
 llist = [Label(root), Label(root), Label(root), Label(root), Label(root), Label(root), Label(root), Label(root), Label(root), Label(root)]
+
+risk = getData()
 
 # Add Title text and instructions
 l1 = Label(root, text = "Covid Risk-Assessment Tool")
