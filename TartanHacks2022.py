@@ -21,7 +21,7 @@ def show_places():
 
 # Initialize root and place list
 root = Tk()
-llist = [Label(root), Label(root), Label(root), Label(root), Label(root), Label(root), Label(root), Label(root), Label(root), Label(root)]
+llist = [Label(root), Label(root), Label(root), Label(root), Label(root), Label(root), Label(root), Label(root), Label(root), Label(root),Label(root), Label(root), Label(root), Label(root), Label(root)]
 
 risk = getData()
 
