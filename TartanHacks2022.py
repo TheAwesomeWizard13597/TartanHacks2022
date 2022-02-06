@@ -7,11 +7,12 @@ from data import *
 
 def show_places():
     for i in range(10):
-        place = risk['Country']
-        rLevel = risk['Active']
+        #place = risk['Country']
+        #rLevel = risk['Active']
+        
         if(rLevel > w.get()):
             continue
-        pltext = str(i) + ". " + place + '. This is the place.'
+        pltext = str(i+1) + ". " + place + '! You can travel here since the risk level is only +' str(rLevel)
         llist[i].config(text=pltext)
         llist[i].pack()
 
