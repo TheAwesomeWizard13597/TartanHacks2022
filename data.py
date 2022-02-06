@@ -2,9 +2,11 @@ import pandas as pd
 
 def getData():
 
-    path = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/02-05-2022.csv'
+    path = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/02-04-2021.csv'
 
     df = pd.read_csv(path)
+
+    print(len(df))
 
     df.info()
 
@@ -12,12 +14,11 @@ def getData():
 
     df.rename(columns={'Country_Region': "Country"}, inplace=True)
 
-    world = df.groupby("Country")['Confirmed','Active','Recovered','Deaths','Incident_Rate'].mean().reset_index()
+    world = df.groupby("Country")['Confirmed','Active'].mean().reset_index()
 
     ### Find top 20 countries with maximum number of confirmed cases
     # 
-    top = world.sort_values(by=['Confirmed'],
-    ascending=False).head()
+    top = world
 
     print(len(top))
 
@@ -42,4 +43,4 @@ def getData():
     return risk
 
     # for country do risk[i][1]
-    # for risk level do risk[i][2]
+    # for risk level do risk[i][0]
