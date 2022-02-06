@@ -4,11 +4,22 @@ from re import L
 import tkinter
 from tkinter import *
 
-def show_values():
-    print (w.get())
+def show_places():
+    for i in range(10):
+        place = "Paris"
+        cp100k = 50
+        rLevel = cp100k
+        print(str(i) + " " + str(rLevel))
+        if(rLevel > w.get()):
+            continue
+        pltext = str(i) + ". " + place + '. This is the place.'
+        print(pltext)
+        llist[i].config(text=pltext)
+        llist[i].pack()
 
-# Initialize root
+# Initialize root and place list
 root = Tk()
+llist = [Label(root)]
 
 # Add Title text and instructions
 l1 = Label(root, text = "Covid Risk-Assessment Tool")
@@ -23,13 +34,11 @@ l2.pack()
 # Add scaler and refresh button
 w = Scale(root, from_=0, to=100, orient=HORIZONTAL, length=500)
 w.pack()
-Button(root, text='Refresh', command=show_values).pack()
+Button(root, text='Refresh', command=show_places).pack()
 
-# Add canvas
-canvas = tkinter.Canvas(root, height=400, width=600)
-canvas.configure(bd=0, highlightthickness=0)
-canvas.pack()
-
-
+# Adding canvas may not be necessary
+# canvas = tkinter.Canvas(root, height=400, width=600)
+# canvas.configure(bd=0, highlightthickness=0)
+# canvas.pack()
 
 root.mainloop()
